@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Large Order Discount extension for Opencart.
