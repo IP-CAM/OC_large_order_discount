@@ -1,9 +1,8 @@
-Hide language and currency
+Large Order Discount
 =====================================================
 
-This extensoin adds multiple sidewide discounts.
-It is based on "sitewide discount" by Anthony Lawrence <freelancer@anthonylawrence.me.uk>.
-http://www.opencart.com/index.php?route=extension/extension/info&extension_id=4099
+This extensoin adds discount based on the cart total.
+Multiple thresholds are supported.
 
 Tested for opencart 1.5.4.1.
 
@@ -18,22 +17,46 @@ That's all!
 =====================================================
 [+] Setup
 =====================================================
-Go to Extension -> Order totals
-Install and configure "Sitewide discount" modules.
-You can enable one or several.
-For example, you can configure several threshold and set 5% for each of them.
-Since the discount is applied to the remaining part of the total cost, adjust the percent for each level:
-5,00000%
-5,26316%
-5,55556%
-5,88235%
-6,25000%
-6,66667%
+1) Add access rights: Select System - > Users -> Users groups. 
+Choose Top Administrators -> Edit. 
+Add access and modify permissions for total/large_order_discount
+
+2) Go to Extension -> Order totals.
+Install and configure "Large Order Discount" module.
+The discount can be configured as a certain amount or as a percent of the subtotals.
+One or several (up to 10) thresholds of the subtotals can be configured.
+
+The highest matching threshold is used to identify the discount.
+The configured thresholds are compared against the subtotals in the cart depending on the totals sort order.
+For example, if you have the following configuration of totals order:
+Shipping  - 10
+Large Order Discount - 20
+Taxes - 30
+Then the large order discount will take for comparison subtotals as "products totals" + "shipping", but not the taxes.
 
 =====================================================
 [+] Usage
 =====================================================
 Add a large order into the cart and check that all discounts are shown.
+Make sure, that your clients will get a discount for a large order.
+Place a banner somewhere on front or add an information article about the wholesale.
+
+=====================================================
+[+] Language
+=====================================================
+English and russian are already in place.
+To add another language: 
+1) copy admin\language\english
+to
+admin\language\[other language]
+Then modify 
+admin\language\[other language]\total\large_order_discount.php
+
+2) copy catalog\language\english
+to
+catalog\language\[other language]
+Then modify 
+catalog\language\[other language]\total\large_order_discount.php
 
 =====================================================
 [+] Need Help?
